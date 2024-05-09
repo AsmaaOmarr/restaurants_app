@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_assignment_1/constant.dart';
+import 'package:mobile_assignment_1/features/map/map_view.dart';
 import 'package:mobile_assignment_1/features/splash_screen/presentation/views/splash_view.dart';
 
 void main() {
@@ -9,7 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           surfaceTintColor: Colors.white,
         ),
       ),
-      home: const SplashView(),
+      home: const MapView(),
     );
   }
 }

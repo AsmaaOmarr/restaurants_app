@@ -6,4 +6,5 @@ class Constant {
   static const String kFontFamily = "Montserrat";
   static const Color kPink = Color(0xffFF6583);
   static const Color kLightPink = Color(0xffFFB7B7);
+  static const Color kAmber = Color.fromARGB(255, 255, 239, 179);
 }

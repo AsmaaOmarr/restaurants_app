@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_assignment_1/constant.dart';
+import 'package:mobile_assignment_1/features/home/bottom_navbar.dart';
+import 'package:mobile_assignment_1/features/home/home_view.dart';
 import 'package:mobile_assignment_1/features/map/map_view.dart';
 import 'package:mobile_assignment_1/features/splash_screen/presentation/views/splash_view.dart';
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           surfaceTintColor: Colors.white,
         ),
       ),
-      home: const MapView(),
+      home: BottomNavBar(),
     );
   }
 }

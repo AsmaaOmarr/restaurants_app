@@ -12,8 +12,8 @@ class HomeView extends StatelessWidget {
       create: (context) => HomeCubit()..getResturantList(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Restaurants'),
-          centerTitle: true,
+          title: const Text('Restaurants & Cafes'),
+          centerTitle: false,
         ),
         body: HomeViewBody(),
       ),

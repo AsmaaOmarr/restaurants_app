@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_assignment_1/constant.dart';
 import 'package:mobile_assignment_1/core/models/products_model/products_model.dart';
 
 class RestaurantItem extends StatelessWidget {
@@ -29,7 +28,7 @@ class RestaurantItem extends StatelessWidget {
               ),
             ),
             Text(
-              '${product.productName}',
+              '${product.productName} ',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -39,7 +38,7 @@ class RestaurantItem extends StatelessWidget {
               ),
             ),
             Text(
-              '${product.price} \$',
+              '${product.price} EGP',
               style: const TextStyle(
                 fontSize: 18,
                 //color: Colors.white,

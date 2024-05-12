@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:mobile_assignment_1/features/search/data/models/search_model/search_model.dart';
-import 'package:mobile_assignment_1/features/search/data/repo/search_repo.dart';
+import 'package:mobile_assignment_1/core/models/search_model/search_model.dart';
+import 'package:mobile_assignment_1/features/search/repo/search_repo.dart';
 
 part 'search_state.dart';
 

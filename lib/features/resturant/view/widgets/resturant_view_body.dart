@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_assignment_1/core/models/products_model/products_model.dart';
 import 'package:mobile_assignment_1/features/resturant/cubit/products_cubit.dart';
-import 'package:mobile_assignment_1/features/resturant/presentation/view/widgets/resturant_item.dart';
+import 'package:mobile_assignment_1/features/resturant/view/widgets/resturant_item.dart';
 
 class RestaurantViewBody extends StatelessWidget {
   RestaurantViewBody({super.key});
@@ -14,18 +14,22 @@ class RestaurantViewBody extends StatelessWidget {
         if (state is ProductsSuccess) {
           products = state.products;
         }
-        return Column(children: [
-          Expanded(
+        return Column(
+          children: [
+            Expanded(
               child: GridView.builder(
-                  itemCount: products.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
-                  itemBuilder: (context, index) {
-                    return RestaurantItem(
-                      product: products[index],
-                    );
-                  }))
-        ]);
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: (context, index) {
+                  return RestaurantItem(
+                    product: products[index],
+                  );
+                },
+              ),
+            ),
+          ],
+        );
       },
     );
   }

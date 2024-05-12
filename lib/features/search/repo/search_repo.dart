@@ -1,6 +1,6 @@
 import 'package:mobile_assignment_1/core/utils/api.dart';
 
-import '../models/search_model/search_model.dart';
+import '../../../core/models/search_model/search_model.dart';
 
 class SearchRepo {
   APiService apiService = APiService();

@@ -4,7 +4,7 @@ import 'package:mobile_assignment_1/constant.dart';
 
 import 'package:mobile_assignment_1/features/home/view/home_view.dart';
 import 'package:mobile_assignment_1/features/map/map_view.dart';
-import 'package:mobile_assignment_1/features/search/presentation/view/search_view.dart';
+import 'package:mobile_assignment_1/features/search/view/search_view.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({super.key});

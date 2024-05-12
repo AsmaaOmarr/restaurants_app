@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_assignment_1/core/models/all_resutrant_model/restaurant.dart';
-import 'package:mobile_assignment_1/features/resturant/presentation/view/resturant_view.dart';
+import 'package:mobile_assignment_1/features/resturant/view/resturant_view.dart';
 
 class HomeItem extends StatelessWidget {
   final Restaurant restaurant;
@@ -26,7 +26,7 @@ class HomeItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: 100,
+          height: 120,
           decoration: BoxDecoration(
             color: Colors.yellow.shade50,
             borderRadius: BorderRadius.circular(20),
@@ -38,7 +38,7 @@ class HomeItem extends StatelessWidget {
                 child: Image.network(
                   '${restaurant.imageUrl}',
                   width: 130,
-                  height: 100,
+                  height: 120,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -58,19 +58,10 @@ class HomeItem extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.location_on_rounded,
-                          ),
-                          Flexible(
-                            child: Text(
-                              "${restaurant.address} ${restaurant.city}",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        "📍 ${restaurant.address} ${restaurant.city}",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Row(children: [
                         const Icon(

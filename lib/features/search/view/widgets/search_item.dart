@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_assignment_1/features/search/data/models/search_model/product.dart';
+import 'package:mobile_assignment_1/core/models/search_model/product.dart';
+import 'package:mobile_assignment_1/features/search/view/places_of_product_view.dart';
 
 class CustomSearchItem extends StatelessWidget {
   const CustomSearchItem({super.key, required this.product});
@@ -7,9 +8,16 @@ class CustomSearchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PlacesOfProductView(product: product),
+          ),
+        );
+      },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(4.0),
         child: Container(
           height: 80,
           decoration: BoxDecoration(
@@ -20,14 +28,14 @@ class CustomSearchItem extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  'assets/images/homeitem.png',
+                child: Image.network(
+                  product.imageUrl ?? "",
                   width: 100,
                   height: 80,
                   fit: BoxFit.fill,
                 ),
               ),
-              const Flexible(
+              Flexible(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -35,21 +43,21 @@ class CustomSearchItem extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          'Coffe',
+                          product.productName ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 16),
+                          style: const TextStyle(fontSize: 16),
                         ),
                       ),
                       Flexible(
                         child: Text(
-                          "description",
+                          product.description ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Text(
-                        "30 EGP",
+                        "${product.price} EGP",
                       )
                     ],
                   ),

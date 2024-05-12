@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_assignment_1/features/search/cubit/search_cubit.dart';
-import 'package:mobile_assignment_1/features/search/data/models/search_model/product.dart';
-import 'package:mobile_assignment_1/features/search/presentation/view/widgets/search_bar.dart';
-import 'package:mobile_assignment_1/features/search/presentation/view/widgets/search_item.dart';
+import 'package:mobile_assignment_1/core/models/search_model/product.dart';
+import 'package:mobile_assignment_1/features/search/view/widgets/search_bar.dart';
+import 'package:mobile_assignment_1/features/search/view/widgets/search_item.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -48,8 +48,14 @@ class SearchViewBody extends StatelessWidget {
                   );
                 }
               }
+              if (state is SearchFailure) {
+                return const Expanded(child: Center(child: Text("try again")));
+              }
               return const Expanded(
-                  child: Center(child: Text("search by product")));
+                child: Center(
+                  child: Text("search by product"),
+                ),
+              );
             },
           ),
         ]),

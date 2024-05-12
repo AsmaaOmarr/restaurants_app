@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_assignment_1/features/resturant/cubit/products_cubit.dart';
-import 'package:mobile_assignment_1/features/resturant/presentation/view/widgets/resturant_view_body.dart';
+import 'package:mobile_assignment_1/features/resturant/view/widgets/resturant_view_body.dart';
 
 class RestaurantView extends StatelessWidget {
   const RestaurantView({super.key, required this.restaurantName});

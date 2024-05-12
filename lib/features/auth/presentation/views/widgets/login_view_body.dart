@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_assignment_1/constant.dart';
 import 'package:mobile_assignment_1/core/utils/snak_bar.dart';
 import 'package:mobile_assignment_1/core/utils/validation.dart';
+import 'package:mobile_assignment_1/features/auth/cubit/cubit/auth_cubit.dart';
+import 'package:mobile_assignment_1/features/home/view/bottom_navbar.dart';
+import 'package:mobile_assignment_1/features/home/view/home_view.dart';
 import '../signup_view.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_pass_textField.dart';
@@ -18,7 +22,7 @@ class LoginViewBody extends StatefulWidget {
 class _LoginViewBodyState extends State<LoginViewBody> {
   GlobalKey<FormState> formKey = GlobalKey();
   String? email, password;
-  bool showEmailNotExist = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -55,7 +59,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 validator: (value) => Validation.validateEmailLogin(
                   value,
                   "Email",
-                  showEmailNotExist,
                 ),
                 icon: Icons.email_rounded,
                 keyboardType: TextInputType.emailAddress,
@@ -88,16 +91,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               CustomButton(
                 buttonName: "Login",
                 onPressed: () async {
-                  bool isExist = true;
-                  if (email != null) {
-                    //bool isExist = await SharedPreferencesService.doesEmailExist(email!);
-                    print("Email is exist = $isExist");
-                    setState(() {
-                      isExist
-                          ? showEmailNotExist = false
-                          : showEmailNotExist = true;
-                    });
-                  }
                   if (formKey.currentState != null &&
                       formKey.currentState!.validate()) {
                     print(email);
@@ -106,6 +99,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     // bool isEmailAndPasswordMatch =await SharedPreferencesService.doEmailAndPasswordMatch(
                     //         email!, password!);
                     print(isEmailAndPasswordMatch);
+                    BlocProvider.of<AuthCubit>(context)
+                        .signIn(email: email!, password: password!);
+
+                    print("Login successfully");
+
                     if (isEmailAndPasswordMatch) {
                       SnakBar.showSnakBar(
                         context,
@@ -113,12 +111,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         Colors.green,
                         Icons.check_circle,
                       );
-                      // Navigator.pushReplacement(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => ProfileView(email: email!),
-                      //   ),
-                      // );
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavBar(),
+                        ),
+                      );
                     } else {
                       SnakBar.showSnakBar(
                         context,

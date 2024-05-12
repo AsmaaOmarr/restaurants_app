@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_assignment_1/features/auth/cubit/cubit/auth_cubit.dart';
 import 'package:mobile_assignment_1/features/auth/presentation/views/login_view.dart';
 import 'package:mobile_assignment_1/core/models/user.dart';
 import 'package:mobile_assignment_1/core/utils/snak_bar.dart';
@@ -139,40 +141,25 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               CustomButton(
                 buttonName: "Sign Up",
                 onPressed: () async {
-                  bool isExist = false;
-                  if (email != null) {
-                    // isExist =
-                    //     await SharedPreferencesService.doesEmailExist(email!);
-                    print("Email is exist = $isExist");
-                    setState(() {
-                      isExist ? showEmailExist = true : showEmailExist = false;
-                    });
-                  }
                   if (formKey.currentState != null &&
-                      formKey.currentState!.validate() &&
-                      !isExist) {
+                      formKey.currentState!.validate()) {
                     User user = User(
                       name: fullName!,
                       email: email!,
-                      //studentId: studentID!,
                       password: password!,
                       gender: gender,
-                      level: level,
+                      level: 1,
+                      confirmPassword: cPassword!,
                     );
-                    print(user);
-                    //await SharedPreferencesService.addUser(user);
-                    //await SharedPreferencesService.removeUser(email!);
-                    // List<User> users =
-                    //     await SharedPreferencesService.getAllUsers();
+                    print("user = ${user.toJson()}");
+
+                    BlocProvider.of<AuthCubit>(context).signUp(user: user);
                     SnakBar.showSnakBar(
                       context,
                       "Sing up success",
                       Colors.green,
                       Icons.check_circle,
                     );
-                    // List<User> userss =
-                    //     await SharedPreferencesService.getAllUsers();
-                    // print(userss);
 
                     // Navigator.pushReplacement(
                     //   context,

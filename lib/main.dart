@@ -1,12 +1,13 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_assignment_1/constant.dart';
-import 'package:mobile_assignment_1/features/home/bottom_navbar.dart';
-import 'package:mobile_assignment_1/features/home/home_view.dart';
-import 'package:mobile_assignment_1/features/map/map_view.dart';
+import 'package:mobile_assignment_1/core/widgets/observer.dart';
 import 'package:mobile_assignment_1/features/splash_screen/presentation/views/splash_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+
   runApp(const MyApp());
 }
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           surfaceTintColor: Colors.white,
         ),
       ),
-      home: BottomNavBar(),
+      home: SplashView(),
     );
   }
 }

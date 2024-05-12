@@ -1,12 +1,10 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
 class User {
   String name;
   String? gender;
   String email;
-  String? level;
+  int? level;
   String password;
+  String confirmPassword;
 
   User({
     required this.name,
@@ -14,11 +12,12 @@ class User {
     required this.email,
     this.level,
     required this.password,
+    required this.confirmPassword,
   });
 
   @override
   String toString() {
-    return 'User{name: $name, gender: $gender, email: $email,  level: $level, password: $password}';
+    return 'User{name: $name, gender: $gender, email: $email,  level: $level, password: $password, confirmPassword: $confirmPassword}';
   }
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -28,6 +27,7 @@ class User {
       email: json['email'],
       level: json['level'],
       password: json['password'],
+      confirmPassword: json['confirm_password'],
     );
   }
 
@@ -38,6 +38,7 @@ class User {
       'email': email,
       'level': level,
       'password': password,
+      "confirm_password": confirmPassword
     };
   }
 }

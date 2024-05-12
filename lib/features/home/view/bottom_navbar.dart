@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_assignment_1/constant.dart';
 
 import 'package:mobile_assignment_1/features/home/view/home_view.dart';
 import 'package:mobile_assignment_1/features/map/map_view.dart';
@@ -29,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         elevation: 0,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.brown,
+        selectedItemColor: Constant.kMainColor,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         showSelectedLabels: true,

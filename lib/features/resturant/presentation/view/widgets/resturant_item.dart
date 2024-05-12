@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:mobile_assignment_1/constant.dart';
 import 'package:mobile_assignment_1/core/models/products_model/products_model.dart';
 
-class ResturantItem extends StatelessWidget {
-  ResturantItem({super.key, required this.product});
-  ProductsModel product = ProductsModel();
+class RestaurantItem extends StatelessWidget {
+  const RestaurantItem({super.key, required this.product});
+  final ProductsModel product;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,7 +13,8 @@ class ResturantItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Constant.main,
+          //color: Constant.main,
+          color: Colors.yellow.shade200,
         ),
         child: Center(
             child: Column(
@@ -23,18 +24,27 @@ class ResturantItem extends StatelessWidget {
               child: Image.network(
                 "${product.imageUrl}",
                 height: 120,
-                fit: BoxFit.cover,
+                width: double.infinity,
+                fit: BoxFit.fill,
               ),
             ),
-            Text('${product.productName}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white)),
-            Text('${product.price} \$',
-                style: const TextStyle(fontSize: 18, color: Colors.white)),
+            Text(
+              '${product.productName}',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w400,
+                //color: Colors.white,
+              ),
+            ),
+            Text(
+              '${product.price} \$',
+              style: const TextStyle(
+                fontSize: 18,
+                //color: Colors.white,
+              ),
+            ),
           ],
         )),
       ),

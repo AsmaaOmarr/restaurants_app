@@ -62,7 +62,7 @@ class HomeViewBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final restaurant = allResturants?.restaurants?[index];
                       if (restaurant != null) {
-                        return HomeItem(resturant: restaurant);
+                        return HomeItem(restaurant: restaurant);
                       } else {
                         // Handle the case where restaurant is null
                         return SizedBox.shrink();

@@ -117,4 +117,31 @@ class APiService {
       throw e;
     }
   }
+
+  Future<Response> searchByProduct(String productName) async {
+    try {
+      Response response = await dio.post(
+        'http://10.0.2.2:8000/api/search/by/product',
+        data: {
+          'product_name': productName,
+        },
+        options: Options(headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        print("success");
+      } else {
+        print("Failed");
+        print(response.statusCode);
+      }
+      print(response.data.toString());
+      return response;
+    } catch (e) {
+      print("Error: $e");
+      throw e;
+    }
+  }
 }

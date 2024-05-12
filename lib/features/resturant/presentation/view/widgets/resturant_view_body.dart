@@ -4,8 +4,8 @@ import 'package:mobile_assignment_1/core/models/products_model/products_model.da
 import 'package:mobile_assignment_1/features/resturant/cubit/products_cubit.dart';
 import 'package:mobile_assignment_1/features/resturant/presentation/view/widgets/resturant_item.dart';
 
-class ResturantViewBody extends StatelessWidget {
-  ResturantViewBody({super.key});
+class RestaurantViewBody extends StatelessWidget {
+  RestaurantViewBody({super.key});
   List<ProductsModel> products = [];
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class ResturantViewBody extends StatelessWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
-                    return ResturantItem(
+                    return RestaurantItem(
                       product: products[index],
                     );
                   }))

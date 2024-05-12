@@ -13,10 +13,17 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       emit(SignUpLoading());
       var result = await authRepo.signUp(user: user);
-      emit(SignUpSuccess());
+      result.fold(
+        (l) => emit(
+          SignUpFailed(msg: l),
+        ),
+        (r) => emit(
+          SignUpSuccess(msg: r),
+        ),
+      );
     } catch (e) {
       print("Error: $e");
-      emit(SignUpFailed());
+      emit(SignUpFailed(msg: e.toString()));
     }
   }
 
@@ -24,11 +31,17 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       emit(LoginLoading());
       var result = await authRepo.signIn(email: email, password: password);
-
-      emit(LoginSuccess());
+      result.fold(
+        (l) => emit(
+          LoginFailed(msg: l),
+        ),
+        (r) => emit(
+          LoginSuccess(msg: r),
+        ),
+      );
     } catch (e) {
       print("Error: $e");
-      emit(LoginFailed());
+      emit(LoginFailed(msg: e.toString()));
     }
   }
 }

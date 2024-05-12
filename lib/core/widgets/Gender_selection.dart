@@ -31,22 +31,22 @@ class _GenderSelectionState extends State<GenderSelection> {
         children: [
           GestureDetector(
             onTap: () {
-              updateSelection('male');
+              updateSelection('Male');
             },
             child: GenderContainer(
-              gender: 'male',
-              isSelected: selectedGender == 'male',
+              gender: 'Male',
+              isSelected: selectedGender == 'Male',
               text: 'Male',
             ),
           ),
           const SizedBox(width: 10),
           GestureDetector(
             onTap: () {
-              updateSelection('female');
+              updateSelection('Female');
             },
             child: GenderContainer(
-              gender: 'female',
-              isSelected: selectedGender == 'female',
+              gender: 'Female',
+              isSelected: selectedGender == 'Female',
               text: 'Female',
             ),
           ),
@@ -82,14 +82,14 @@ class GenderContainer extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
         color: isSelected
-            ? (gender == 'male'
+            ? (gender == 'Male'
                 ? Colors.blue.shade100.withOpacity(0.76)
                 : Constant.kLightPink.withOpacity(0.48))
             : Colors.grey.shade200,
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
           color: isSelected
-              ? (gender == 'male' ? Colors.blue : Constant.kPink)
+              ? (gender == 'Male' ? Colors.blue : Constant.kPink)
               : Colors.transparent,
           width: 1, // Adjust border width
         ),
@@ -98,18 +98,18 @@ class GenderContainer extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(gender == 'male' ? Icons.man : Icons.girl_outlined,
+          Icon(gender == 'Male' ? Icons.man : Icons.girl_outlined,
               color: isSelected
-                  ? (gender == 'male' ? Colors.blue : Constant.kPink)
+                  ? (gender == 'Male' ? Colors.blue : Constant.kPink)
                   : Colors.grey.shade400,
-              size: gender == 'male' ? 22 : 26),
+              size: gender == 'Male' ? 22 : 26),
           Text(
             text,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontFamily: Constant.kFontFamily,
               color: isSelected
-                  ? (gender == 'male' ? Colors.blue : Constant.kPink)
+                  ? (gender == 'Male' ? Colors.blue : Constant.kPink)
                   : Colors.grey.shade400,
             ),
           ),

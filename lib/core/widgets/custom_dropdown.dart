@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_assignment_1/constant.dart';
 
 class CustomDropdownButton extends StatefulWidget {
-  final String? value;
-  final void Function(String?)? onChanged;
+  final int? value;
+  final void Function(int?)? onChanged;
 
   const CustomDropdownButton({
     super.key,
@@ -16,13 +16,7 @@ class CustomDropdownButton extends StatefulWidget {
 }
 
 class _CustomDropdownButtonState extends State<CustomDropdownButton> {
-  static const List<String> _items = [
-    "Select Level",
-    "Level 1",
-    "Level 2",
-    "Level 3",
-    "Level 4"
-  ];
+  static const List<int> _items = [0, 1, 2, 3, 4];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +37,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           child: Row(
             children: [
               Expanded(
-                child: DropdownButton<String>(
+                child: DropdownButton<int>(
                   value: widget.value,
                   onChanged: widget.onChanged,
                   underline: SizedBox(), // Remove underline
@@ -51,11 +45,11 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     Icons.arrow_drop_down,
                     color: Colors.transparent,
                   ),
-                  items: _items.map((String value) {
-                    return DropdownMenuItem<String>(
+                  items: _items.map((int value) {
+                    return DropdownMenuItem<int>(
                       value: value,
                       child: Text(
-                        value,
+                        value == 0 ? "Select Level" : "Level $value",
                         style: const TextStyle(
                           fontFamily: Constant.kFontFamily,
                         ),

@@ -64,17 +64,17 @@ class APiService {
         data: data,
         options: Options(
           headers: {
-            // 'Content-Type': 'application/json',
-            // 'Accept': '*/*',
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
           },
           followRedirects: false,
           validateStatus: (status) {
-            return status! < 500;
+            return status! <= 500;
           },
         ),
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         print("success+++++++++");
       } else {
         print("Failed+++++++++");
@@ -94,6 +94,9 @@ class APiService {
         'http://10.0.2.2:8000/api/signin',
         data: data,
         options: Options(
+          validateStatus: (status) {
+            return status! < 500;
+          },
           headers: {
             'Content-Type': 'application/json',
             'Accept': '*/*',

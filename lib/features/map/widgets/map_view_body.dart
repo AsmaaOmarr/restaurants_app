@@ -3,11 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'dart:async';
-
-import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 class MapViewBody extends StatefulWidget {
   final List<LatLng> coordinates;
 

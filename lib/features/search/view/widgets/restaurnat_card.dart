@@ -17,8 +17,7 @@ class RestaurantCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                DistanceDirectionsView(restaurant: restaurant),
+            builder: (context) => DistanceDirectionsView(restaurant: restaurant),
           ),
         );
       },
@@ -84,8 +83,9 @@ class RestaurantCard extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget buildRatingStars(double rating) {
+ Widget buildRatingStars(double rating) {
     int fullStars = rating.floor();
     double halfStars = rating - fullStars;
     int emptyStars = 5 - fullStars - (halfStars > 0 ? 1 : 0);
@@ -119,4 +119,3 @@ class RestaurantCard extends StatelessWidget {
           ),
     );
   }
-}

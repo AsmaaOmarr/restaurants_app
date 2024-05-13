@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_assignment_1/core/models/all_resutrant_model/restaurant.dart';
 import 'package:mobile_assignment_1/features/resturant/view/resturant_view.dart';
+import 'package:mobile_assignment_1/features/search/view/widgets/restaurnat_card.dart';
 
 class HomeItem extends StatelessWidget {
   final Restaurant restaurant;
@@ -63,14 +64,14 @@ class HomeItem extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Row(children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
+                        buildRatingStars(restaurant.starCount ?? 0),
                         Flexible(
                             child: Text(
-                          "${restaurant.starCount} (${restaurant.ratingCount})",
+                          " (${restaurant.ratingCount})",
                         ))
                       ])
                     ],

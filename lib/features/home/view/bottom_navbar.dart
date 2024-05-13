@@ -17,7 +17,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> screens = [
     const HomeView(),
     const SearchView(),
-    const MapView(),
+    const Center(child: Text("Map")),
+    //const MapView(),
   ];
 
   int selectedIndex = 0;

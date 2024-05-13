@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_assignment_1/constant.dart';
 import 'package:mobile_assignment_1/core/models/all_resutrant_model/restaurant.dart';
 import 'package:mobile_assignment_1/features/distance/view/distance_view.dart';
+import 'package:mobile_assignment_1/features/distance_directions/views/distance_directions_view.dart';
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({super.key, required this.restaurant});
@@ -16,7 +17,8 @@ class RestaurantCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => DistanceView(restaurant: restaurant),
+            builder: (context) =>
+                DistanceDirectionsView(restaurant: restaurant),
           ),
         );
       },

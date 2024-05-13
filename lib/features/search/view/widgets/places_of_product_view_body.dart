@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_assignment_1/constant.dart';
 import 'package:mobile_assignment_1/core/models/search_model/product.dart';
+import 'package:mobile_assignment_1/features/map/map_view.dart';
 import 'package:mobile_assignment_1/features/search/view/widgets/restaurnat_card.dart';
 
 class PlacesOfProductViewBody extends StatelessWidget {
@@ -17,7 +18,16 @@ class PlacesOfProductViewBody extends StatelessWidget {
         child: Column(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MapView(
+                      restaurantsList: product.restaurants!,
+                    ),
+                  ),
+                );
+              },
               child: const Align(
                 alignment: Alignment.centerRight,
                 child: Text(

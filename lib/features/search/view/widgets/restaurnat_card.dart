@@ -13,12 +13,12 @@ class RestaurantCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DistanceDirectionsView(restaurant: restaurant),
-          ),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => DistanceDirectionsView(restaurant: restaurant),
+        //   ),
+        // );
       },
       child: Padding(
         padding: const EdgeInsets.all(4.0),
@@ -84,37 +84,37 @@ class RestaurantCard extends StatelessWidget {
   }
 }
 
- Widget buildRatingStars(double rating) {
-    int fullStars = rating.floor();
-    double halfStars = rating - fullStars;
-    int emptyStars = 5 - fullStars - (halfStars > 0 ? 1 : 0);
+Widget buildRatingStars(double rating) {
+  int fullStars = rating.floor();
+  double halfStars = rating - fullStars;
+  int emptyStars = 5 - fullStars - (halfStars > 0 ? 1 : 0);
 
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(
-            fullStars,
-            (index) => const Icon(
-              CupertinoIcons.star_fill,
-              color: Colors.yellow,
-              size: 16,
-            ),
-          ) +
-          (halfStars > 0
-              ? [
-                  const Icon(
-                    CupertinoIcons.star_lefthalf_fill,
-                    color: Colors.yellow,
-                    size: 16,
-                  ),
-                ]
-              : []) +
-          List.generate(
-            emptyStars,
-            (index) => Icon(
-              CupertinoIcons.star_fill,
-              color: Colors.grey.shade200,
-              size: 16,
-            ),
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: List.generate(
+          fullStars,
+          (index) => const Icon(
+            CupertinoIcons.star_fill,
+            color: Colors.yellow,
+            size: 16,
           ),
-    );
-  }
+        ) +
+        (halfStars > 0
+            ? [
+                const Icon(
+                  CupertinoIcons.star_lefthalf_fill,
+                  color: Colors.yellow,
+                  size: 16,
+                ),
+              ]
+            : []) +
+        List.generate(
+          emptyStars,
+          (index) => Icon(
+            CupertinoIcons.star_fill,
+            color: Colors.grey.shade200,
+            size: 16,
+          ),
+        ),
+  );
+}

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           surfaceTintColor: Colors.white,
         ),
       ),
-      home: BottomNavBar(),
+      home: SplashView(),
     );
   }
 }

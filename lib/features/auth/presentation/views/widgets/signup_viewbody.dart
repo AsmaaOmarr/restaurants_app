@@ -36,12 +36,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           setState(() => isLoading = true);
         } else if (state is SignUpFailed) {
           setState(() => isLoading = false);
-          if (state.msg.contains("The email address is already registered.")) {
-            SnakBar.showSnakBar(context, "email already exists", Colors.red,
-                Icons.error_outline_rounded);
-          } else {
-            print(state.msg);
-          }
+          SnakBar.showSnakBar(context, "email already exists", Colors.red,
+              Icons.error_outline_rounded);
         } else if (state is SignUpSuccess) {
           SnakBar.showSnakBar(
               context, "Sign up Success", Colors.green, Icons.check_circle);
